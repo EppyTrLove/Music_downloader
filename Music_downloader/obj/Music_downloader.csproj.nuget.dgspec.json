@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eppy_\\source\\repos\\Music_downloader\\Music_downloader\\Music_downloader.csproj": {}
+    "C:\\Solvery\\Music_downloader\\Music_downloader\\Music_downloader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eppy_\\source\\repos\\Music_downloader\\Music_downloader\\Music_downloader.csproj": {
+    "C:\\Solvery\\Music_downloader\\Music_downloader\\Music_downloader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eppy_\\source\\repos\\Music_downloader\\Music_downloader\\Music_downloader.csproj",
+        "projectUniqueName": "C:\\Solvery\\Music_downloader\\Music_downloader\\Music_downloader.csproj",
         "projectName": "Music_downloader",
-        "projectPath": "C:\\Users\\eppy_\\source\\repos\\Music_downloader\\Music_downloader\\Music_downloader.csproj",
+        "projectPath": "C:\\Solvery\\Music_downloader\\Music_downloader\\Music_downloader.csproj",
         "packagesPath": "C:\\Users\\eppy_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eppy_\\source\\repos\\Music_downloader\\Music_downloader\\obj\\",
+        "outputPath": "C:\\Solvery\\Music_downloader\\Music_downloader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
