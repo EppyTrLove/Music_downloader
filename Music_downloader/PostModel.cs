@@ -16,7 +16,7 @@
         public int Reposts { get; set; }
         public DateTime Date { get; set; }
         public AttachmentModel[] Attachments { get; set; }
-        public PersonModel Person { get; set; }
+        public PostPeople[] People { get; set; }
 
         public bool Equals(PostModel? x, PostModel? y)
         {
@@ -36,9 +36,7 @@
         {
             public string Link { get; set; }
         }
-        public class PersonModel
-        {
-            public long id { get; set; }
-        }
+
     }
+
 }
