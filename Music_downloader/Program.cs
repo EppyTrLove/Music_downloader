@@ -22,7 +22,7 @@ class Program
         {
             Login = config["Login"],
             Password = config["Password"],
-            AccessToken = config["VkToken"],
+            //AccessToken = config["VkToken"],
             Settings = Settings.All,
             ApplicationId = 51661636
         });
@@ -36,11 +36,11 @@ class Program
         var PostPeopleDao = new PostPeoplelDao($@"{Environment.CurrentDirectory}\PostPeopleDatabase.txt");
         var PostPeopleData = PostPeopleDao.GetAll().ToList();
 
-        ulong offset = 0;
+        const int step = 1;
+        ulong offset = 18000;
         ulong getCount = 0;
         var posts = new List<PostModel>();
         var peoples = new List<PostPeople>();
-        //var result = new HttpClient();
         do
         {
             try
@@ -49,10 +49,12 @@ class Program
                 {
                     OwnerId = -groups.Id,
                     Offset = offset,
-                    Count = 100,
+                    Count = 20,
                 });
-                offset += 100;
+                offset += step;
+                Console.WriteLine(offset);
                 getCount = responce.TotalCount;
+                if(responce.TotalCount ==0) break;
 
                 foreach (var wallPost in responce.WallPosts)
                 {
@@ -74,11 +76,10 @@ class Program
                         post.Attachments = attachments.ToArray();
                         posts.Add(post);
                     }
-                    Console.WriteLine(offset);
                     var likersId = client.Likes.GetList(new LikesGetListParams
                     {
                         ItemId = wallPost.Id.Value,
-                        //OwnerId = -groups.Id,
+                        OwnerId = -groups.Id,
                     }).ToArray();
                     var people = new PostPeople(wallPost.Id!.Value, likersId);
                     peoples.Add(people);
@@ -87,11 +88,10 @@ class Program
             catch (Exception e)
             {
                 Console.WriteLine(e);
-
-                throw;
+                offset += step;
             }
         }
-        while ( offset % 100 == 0);
+        while (true);
         postDao.Add(posts.ToArray());
         PostPeopleDao.Add(peoples.ToArray());
 
